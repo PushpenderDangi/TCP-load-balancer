@@ -1,21 +1,26 @@
-# TCP-load-balancer
-This document is based on load balancing means how a web server balance the load.
 
-Transform iptables into a TCP load balancer
 
-Task requirement
+# Documentation on how to setup caddy and balance load
+
+
+
+### Submitted By :- 
+#### Pushpender
+
+# Transform iptables into a TCP load balancer
+
+## Task requirement
 
 To create two new Caddy or two nginx and after creating, it needs to forward the 50% of Load to another server.
 
 
-Environment details
-
-iptable rules will be applicable for all types of OS.
+## Environment details
 
 UbuntuNAME="Ubuntu"
+
 VERSION="20.04.5
 
-List of tools and technologies
+## List of tools and technologies
 
 Caddy is most often used as an HTTPS server, but it is suitable for any long-running Go program. First and foremost, it is a platform to run Go applications.
 
@@ -29,29 +34,46 @@ I have made two virtual machines so that they can work like a web server.
 
 
 
-For VM1 caddy installation
+## TCP Load Balancing
+Load balancing ensures high system availability through the distribution of workload across multiple components. Using multiple components with load balancing, instead of a single component, may increase reliability through redundancy.
+TCP load balancing component receives a connection request from a client application through a network socket. This component decides which node in the environment receives the request. For this requests distribution, the platform uses Round Robin Algorithm.
 
-VM1 :- 192.168.122.19
+## What are iptables?
 
-Update and upgrade system commands.
+In the linux operating system, the firewalling is taken care of using netfilter. Which is a kernel module that decides what packets are allowed to come in or to go outside.
+
+iptables are just the interface to netfilter. The two might often be thought of as the same thing. A better perspective would be to think of it as a back end and a front end.
+
+
+
+## Nginx and Caddy Web servers.
+Both are web servers but they are used according to need.
+Nginx web server is ideal for handling heavy traffic volumes and serving large amounts of static content, but Caddy web servers are suitable for small sites and focus on performance and ease of use.
+
+
+## VM1 caddy installation
+
+## VM1 :- 192.168.122.19
+
+## Update and upgrade system commands.
 sudo apt update
 sudo apt upgrade
 
 
-Download and Install Caddy: Download and install Caddy, a web server, using the given below commands.
+## Download and Install Caddy: Download and install Caddy, a web server, using the given below commands.
 
-These commands are to be run in the virtual machine that we have created to run the caddy.
+## These commands are to be run in the virtual machine that we have created to run the caddy.
 
 
 1.  To install caddy first we have to install the curl package on our server. To do this, run this command.
 
-If you are in a root directory then run this command.
+## If you are in a root directory then run this command.
 
 apt install curl -y
 
 
 
-Or if you are not in a root directory then run this command.
+## Or if you are not in a root directory then run this command.
 
 
 sudo apt install curl -y
@@ -66,9 +88,9 @@ sudo apt install curl -y
 
 
 
-2. After that install the necessary dependencies to install the caddy web server.
+## 2. After that install the necessary dependencies to install the caddy web server.
 
-Import the official GPG key for caddy. The keys are imported using these commands.
+## Import the official GPG key for caddy. The keys are imported using these commands.
 
 
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
@@ -80,7 +102,7 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo 
 
 
 
-Update your system then install the caddy.
+## Update your system then install the caddy.
 
 
 sudo apt update 
@@ -89,7 +111,7 @@ sudo apt install caddy
 
 
 
-It automatically starts caddy as a system service name caddy. The status of which you can check with the following command.
+## It automatically starts caddy as a system service name caddy. The status of which you can check with the following command.
 
 
 systemctl status caddy
@@ -97,22 +119,22 @@ systemctl status caddy
 
 
 
- Verify Caddy Installation: Confirm the installation of Caddy by checking its version.
+## Verify Caddy Installation: Confirm the installation of Caddy by checking its version.
 
 caddy version
 
 
 
 
-If everything works for you then it's time to check it by going to the server IP.
+## If everything works for you then it's time to check it by going to the server IP.
 
-Go to the web browser of the same virtual machine in which you have installed caddy and in the url bar type:- 
+## Go to the web browser of the same virtual machine in which you have installed caddy and in the url bar type:- 
 
 localhost:80
 
 
 
-To install vim in a virtual machine.
+## To install vim in a virtual machine.
 
 
 sudo apt install vim
@@ -121,7 +143,7 @@ sudo apt install vim
 Vim is a text editor in linux like OS. It is used to create and edit text files.
 
 
-Then go to the terminal of the virtual machine 1.
+## Then go to the terminal of the virtual machine 1.
 
 cd /usr/share/caddy
 
@@ -137,7 +159,7 @@ sudo vim index.html
 
 
 
-Add below content:- 
+## Add below content:- 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -151,29 +173,29 @@ Add below content:-
 </body>
 
 
-For VM2 caddy installation
+## For VM2 caddy installation
 
-VM2 >>>> 192.168.122.103
+## VM2 >>>> 192.168.122.103
 
-Update and upgrade system commands.
+## Update and upgrade system commands.
 sudo apt update
 sudo apt upgrade
 
 
-Download and Install Caddy: Download and install Caddy, a web server, using the given below commands.
+## Download and Install Caddy: Download and install Caddy, a web server, using the given below commands.
 
-These commands are to be run in the virtual machine that we have created to run the caddy.
+## These commands are to be run in the virtual machine that we have created to run the caddy.
 
-1.  To install caddy first we have to install the curl package on our server. To do this, run this command.
+## 1.  To install caddy first we have to install the curl package on our server. To do this, run this command.
 
-If you are in a root directory then run this command.
+## If you are in a root directory then run this command.
 
 
 apt install curl -y
 
 
 
-Or if you are not in a root directory then run this command.
+## Or if you are not in a root directory then run this command.
 
 
 sudo apt install curl -y
@@ -181,9 +203,9 @@ sudo apt install curl -y
 
 
 
-2. After that install the necessary dependencies to install the caddy web server.
+## 2. After that install the necessary dependencies to install the caddy web server.
 
-Import the official GPG key for caddy. The keys are imported using these commands.
+## Import the official GPG key for caddy. The keys are imported using these commands.
 
 
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
@@ -195,7 +217,7 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo 
 
 
 
-Update your system then install the caddy.
+## Update your system then install the caddy.
 
 
 sudo apt update
@@ -204,7 +226,7 @@ sudo apt install caddy
 
 
 
-It automatically starts caddy as a system service name caddy. The status of which you can check with the following command.
+## It automatically starts caddy as a system service name caddy. The status of which you can check with the following command.
 
 
 systemctl status caddy
@@ -212,49 +234,46 @@ systemctl status caddy
 
 
 
- Verify Caddy Installation: Confirm the installation of Caddy by checking its version.
+## Verify Caddy Installation: Confirm the installation of Caddy by checking its version.
 
 caddy version
 
 
 
 
-If everything works for you then it's time to check it by going to the server IP.
+## If everything works for you then it's time to check it by going to the server IP.
 
-Go to the web browser of the same virtual machine in which you have installed caddy and in the url bar type:- 
+## Go to the web browser of the same virtual machine in which you have installed caddy and in the url bar type:- 
 
-This command will show that caddy is installed and working properly.
+## This command will show that caddy is installed and working properly.
 localhost:80
 
 
 
-To install vim in a virtual machine.
+## To install vim in a virtual machine.
 
 sudo apt install vim
 
 
+## Then go to the terminal of the virtual machine 2.
 
-
-
-Then go to the terminal of the virtual machine 2.
-
-Used to change the directory
+## Used to change the directory
 cd /usr/share/caddy
 
 
-To show a list of files.
+## To show a list of files.
 ls
 
 ls command is used to show a list of files.
 
-To create a file and open a file in vim editor
+## To create a file and open a file in vim editor
 sudo vim index.html
 
 
 
 
 
-Add below content:- 
+## Add below content:- 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -270,13 +289,13 @@ Add below content:-
 
 
 
-Curl on virtual machines
+## Curl on virtual machines
 
-I am able to curl pages from both virtual machines.
+## I am able to curl pages from both virtual machines.
 
 Curl command is used to get data or exchange of data between a device and server through a terminal.
 
-curl http://192.168.122.19
+## curl http://192.168.122.19
 
 <!DOCTYPE html>
 <html lang="en">
@@ -290,7 +309,7 @@ curl http://192.168.122.19
 </body>
 
 
-curl http://192.168.122.103
+## curl http://192.168.122.103
 
 <!DOCTYPE html>
 <html lang="en">
@@ -305,12 +324,12 @@ curl http://192.168.122.103
 </html>
 
 
-Curl on base machine
+## Curl on base machine
 
-I am able to curl from Base Machine.
+## I am able to curl from Base Machine.
 
 
-curl http://192.168.122.19
+## curl http://192.168.122.19
 
 <!DOCTYPE html>
 <html lang="en">
@@ -325,7 +344,7 @@ curl http://192.168.122.19
 
 
 
- curl http://192.168.122.103
+ ## curl http://192.168.122.103
 
 <!DOCTYPE html>
 <html lang="en">
@@ -339,19 +358,19 @@ curl http://192.168.122.19
 </body>
 </html>
 
-Commands that to be run on VM1 
+## Commands that to be run on VM1 
 
-Now work on Virtual machine 1 
+## Now work on Virtual machine 1 
 
-a) Enable IP Forwarding:
+## a) Enable IP Forwarding:
 
-Activate IP forwarding to facilitate traffic routing between interfaces: 
+## Activate IP forwarding to facilitate traffic routing between interfaces: 
 
 
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo vim /etc/sysctl.conf
 
 
-uncomment in the file below line.
+## uncomment in the file below line.
 
  net.ipv4.ip_forward=1
 
@@ -373,11 +392,11 @@ net.ipv4.conf.all.log_martians = 1
 
 
 
- Modify source IP for forwarding: this command run on vm1 source
+## Modify source IP for forwarding: this command run on vm1 source
 
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo iptables -A POSTROUTING  -t nat -p tcp  -d 192.168.122.103 --dport 80 -j SNAT --to-source 192.168.122.19
 
- Set default connection drop vm1 
+## Set default connection drop vm1 
 This implies that by default, any incoming traffic that doesn't match specific predefined rules will be dropped or rejected. In other words, if the firewall doesn't have a rule that explicitly allows the traffic to pass through, it will block it as a security measure. This approach follows the principle of allowing only known and authorised traffic, enhancing the network's security.
 
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo iptables -t filter -P FORWARD DROP
@@ -389,11 +408,11 @@ iptables: This is a command-line utility in Linux used to configure the netfilte
 
 
 
-Accept Traffic to the Server: 
+##  Traffic to the Server: 
 This involves creating rules that explicitly allow certain types of traffic to reach a designated server. For instance, if you have a server at IP address 192.168.122.44 and it's listening on port 80, you can configure the firewall to accept incoming traffic destined for that server's IP and port. This is done using firewall rules that specify the source, destination, protocol, and port of the allowed traffic.
 Allow specific traffic from particular sources and to specific destinations (servers) on specific ports (--dport for destination port and --sport for source port). This creates a controlled and secure network environment where only the specified traffic is permitted to traverse the firewall.
 
-This command run on Virtual Machine 1
+## This command run on Virtual Machine 1
 
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo iptables -t filter -A FORWARD -d 192.168.122.103 -p tcp --dport 80 -j ACCEPT
 
@@ -414,9 +433,10 @@ iptables: The command-line utility used for managing the netfilter firewall in L
 
 
 
+
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo iptables -t filter -A FORWARD -s 192.168.122.103 -p tcp --sport 80 -j ACCEPT
 
-Command to be run on Virtual Machine 2
+## Command to be run on Virtual Machine 2
 
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
@@ -434,16 +454,15 @@ iptables: The command-line utility used for managing the netfilter firewall in L
 
 
 
-Apply  Random Load Balancing and then  Round Robin:-
+
+## Apply  Random Load Balancing and then  Round Robin:-
 
 A technique used in network environments to distribute incoming traffic across multiple servers in a random manner. This method is employed to optimise resource utilisation, prevent overload on individual servers, and enhance the overall performance and reliability of a system.
 In this case, incoming traffic destined for the IP address 192.168.122.19 on port 80 is subject to random distribution between one destinations (192.168.122.103:80)  The --mode random option ensures that the traffic is distributed based on a randomised algorithm, with different probabilities assigned to each destination (--probability 0.33 and --probability 0.5 in this case).
 The goal of applying random load balancing is to distribute traffic unpredictably, achieving a fair distribution of incoming requests among the specified destinations. This way, the servers can collectively handle the load more efficiently, minimising the risk of overloading any single server and contributing to improved performance and fault tolerance.
 
 
-
-
-Command to be run on Virtual Machine 1
+## Command to be run on Virtual Machine 1
 
 
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo iptables -A PREROUTING -t nat -p tcp -d 192.168.122.19 --dport 80 \
@@ -464,16 +483,20 @@ ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo iptables -A PREROUTING -t nat -p
 
 
 
-Capture Specific Port Traffic:
+
+
+
+
+## Capture Specific Port Traffic:
 Use tcpdump to monitor network traffic on a specific port:-
 
 Tcpdump command is used to capture and analyze network traffic
 sudo tcpdump -i enp1s0 port 80 -n 
 
 
-Output of TCP Dump
+## Output of TCP Dump
 
-1st curl hit:-
+## 1st curl hit:-
 
 ﻿
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo tcpdump -i enp1s0 port 80 -n -v
@@ -522,7 +545,7 @@ connection: close
 
 
 
-2nd curl Hit:-
+## 2nd curl Hit:-
 
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo tcpdump -i enp1s0 port 80 -n -v
 tcpdump: listening on enp1s0, link-type EN10MB (Ethernet), capture size 262144 bytes
@@ -561,15 +584,21 @@ connection: close
 
 
 
-Load Testing:- ( on base machine )
+## Load Testing:- ( on base machine )
 
-This command is used to install set of utility program for web servers
+## This command is used to install set of utility program for web servers
 sudo apt install apache2-utils 
 
 
-Install ab command at local for load testing
+## Install ab command at local for load testing
 Install apache2-utils for ab command for Load Testing
 run load test using ab command :- 
+
+
+
+
+
+
 
 
 
@@ -634,9 +663,9 @@ Percentage of the requests served within a certain time (ms)
 
 
 
-curl  Output :- 
+## curl  Output :- 
 
-curl http://192.168.122.19
+## curl http://192.168.122.19
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -651,7 +680,7 @@ curl http://192.168.122.19
 
 
 
-curl http://192.168.122.19
+## curl http://192.168.122.19
 i<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -663,5 +692,8 @@ i<!DOCTYPE html>
     <h1>Hello pushpender!</h1>
 </body>
 </html>
+
+
+
 
 
