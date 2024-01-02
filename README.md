@@ -8,17 +8,28 @@
 #### Pushpender
 
 # Table of Content :-
-[Task requirement](#Task requirement)
-[Environment details](#Environment details)
-[List of tools and technologies](#List of tools and technologies)
-[For VM1 caddy installation](#For VM1 caddy installation)
-[For VM2 caddy installation](#For VM2 caddy installation)
-[Curl on virtual machines](#Curl on virtual machines])
-[Curl on base machine](#Curl on base machine)
-[Commands that to be run on VM1](#Commands that to be run on VM1)
-[Command to be run on Virtual Machine 2](#Command to be run on Virtual Machine 2)
-[Command to be run on Virtual Machine 1](#Command to be run on Virtual Machine 1)
-[Load Testing:- ( on base machine )](#Load Testing:- ( on base machine ))
+[Task requirement](#Taskrequirement)
+
+[Environment details](#Environmentdetails)
+
+[List of tools and technologies](#Listoftoolsandtechnologies)
+
+[For VM1 caddy installation](#ForVM1caddynstallation)
+
+[For VM2 caddy installation](#ForVM2caddyinstallation)
+
+[Curl on virtual machines](#Curlonvirtualmachines])
+
+[Curl on base machine](#Curlonbasemachine)
+
+[Commands that to be run on VM1](#CommandsthattoberunonVM1)
+
+[Command to be run on Virtual Machine 2](#CommandtoberunonVirtualMachine2)
+
+[Command to be run on Virtual Machine 1](#CommandtoberunonVirtualMachine1)
+
+[Load Testing:- ( on base machine )](#LoadTesting:-(onbasemachine))
+
 
 
 
@@ -37,13 +48,13 @@ VERSION="20.04.5
 
 ## List of tools and technologies
 
-Caddy is most often used as an HTTPS server, but it is suitable for any long-running Go program. First and foremost, it is a platform to run Go applications.
+- Caddy is most often used as an HTTPS server, but it is suitable for any long-running Go program. First and foremost, it is a platform to run Go applications.
 
 
-Caddy:- CADDY_VERSION=v2.7.5
+- Caddy:- CADDY_VERSION=v2.7.5
 
 
-I have made two virtual machines so that they can work like a web server.
+- I have made two virtual machines so that they can work like a web server.
 
 
 
@@ -75,7 +86,14 @@ Nginx web server is ideal for handling heavy traffic volumes and serving large a
 
 ## Update and upgrade system commands.
 sudo apt update
+
 sudo apt upgrade
+
+**sudo** - performs the following command with super-user (root) capabilities. Many actions that require modifying system files or installing applications require extra permissions to go through.
+
+**apt** - is a command-line tool which Ubuntu uses to install, remove, and manage software packages.
+
+**update**,**upgrade** - The “sudo apt upgrade” command is used to upgrade the installed packages on your system to their latest versions. On the contrary, the “sudo apt update” command ensures that the system has the latest information about the available packages. But it doesn't install or upgrade any software packages.
 
 
 ## Download and Install Caddy: Download and install Caddy, a web server, using the given below commands.
@@ -89,6 +107,9 @@ sudo apt upgrade
 
 apt install curl -y
 
+**apt** - is a command-line tool which Ubuntu uses to install, remove, and manage software packages.
+
+**install** - The install command installs a specified file in a specific place within a file system.
 
 
 ## Or if you are not in a root directory then run this command.
@@ -96,7 +117,13 @@ apt install curl -y
 
 sudo apt install curl -y
 
+**sudo** - performs the following command with super-user (root) capabilities. Many actions that require modifying system files or installing applications require extra permissions to go through.
 
+**apt** - is a command-line tool which Ubuntu uses to install, remove, and manage software packages.
+
+**install** - The install command installs a specified file in a specific place within a file system.
+
+**curl** - Client URL is a command line tool that enables data exchange between a device and a server through a terminal.
 
 -y flag means "yes" to any prompts, so it automatically agrees to the upgrades without asking for confirmation.
 
@@ -123,9 +150,15 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo 
 ## Update your system then install the caddy.
 
 
-sudo apt update 
-
 sudo apt install caddy 
+
+**sudo** - performs the following command with super-user (root) capabilities. Many actions that require modifying system files or installing applications require extra permissions to go through.
+
+**apt** - is a command-line tool which Ubuntu uses to install, remove, and manage software packages.
+
+**install** - The install command installs a specified file in a specific place within a file system.
+
+**Caddy** - It is the name of the file or the resource we want to install in our system.
 
 
 
@@ -134,12 +167,21 @@ sudo apt install caddy
 
 systemctl status caddy
 
+**systemctl** - Systemctl provides a means to check the status of any systemd service running on dedicated server hosting.
+
+**status** - By issuing the status command, you can gather information about a particular service, including its current state and details.
+
+**Caddy** - The server which we want to check.
 
 
 
 ## Verify Caddy Installation: Confirm the installation of Caddy by checking its version.
 
 caddy version
+
+**Caddy** - The server
+
+**version** - This will show the version of the caddy server.
 
 
 
@@ -157,20 +199,34 @@ localhost:80
 
 sudo apt install vim
 
+**sudo** - performs the following command with super-user (root) capabilities. Many actions that require modifying system files or installing applications require extra permissions to go through.
 
-Vim is a text editor in linux like OS. It is used to create and edit text files.
+**apt** - is a command-line tool which Ubuntu uses to install, remove, and manage software packages.
+
+**install** - The install command installs a specified file in a specific place within a file system.
+
+**Vim**i s a text editor in linux like OS. It is used to create and edit text files.
 
 
 ## Then go to the terminal of the virtual machine 1.
 
 cd /usr/share/caddy
 
+**cd** - cd command is used to change the directory.
+
+**/usr/share/caddy** - It is the path of the file
 
 ls
 
-ls command is used to show a list of files.
+**ls** - command is used to show a list of files.
 
 sudo vim index.html
+
+**sudo** - performs the following command with super-user (root) capabilities. Many actions that require modifying system files or installing applications require extra permissions to go through.
+
+**Vim** - it s a text editor in linux like OS. It is used to create and edit text files.
+
+**index.html** - It is the file we have created inside the above directory.
 
 
 
@@ -197,26 +253,49 @@ sudo vim index.html
 
 ## Update and upgrade system commands.
 sudo apt update
+
 sudo apt upgrade
+
+**sudo** - performs the following command with super-user (root) capabilities. Many actions that require modifying system files or installing applications require extra permissions to go through.
+
+**apt** - is a command-line tool which Ubuntu uses to install, remove, and manage software packages.
+
+**update**,**upgrade** - The “sudo apt upgrade” command is used to upgrade the installed packages on your system to their latest versions. On the contrary, the “sudo apt update” command ensures that the system has the latest information about the available packages. But it doesn't install or upgrade any software packages.
 
 
 ## Download and Install Caddy: Download and install Caddy, a web server, using the given below commands.
 
 ## These commands are to be run in the virtual machine that we have created to run the caddy.
 
-## 1.  To install caddy first we have to install the curl package on our server. To do this, run this command.
+
+1.  To install caddy first we have to install the curl package on our server. To do this, run this command.
 
 ## If you are in a root directory then run this command.
 
-
 apt install curl -y
 
+**apt** - is a command-line tool which Ubuntu uses to install, remove, and manage software packages.
+
+**install** - The install command installs a specified file in a specific place within a file system.
 
 
 ## Or if you are not in a root directory then run this command.
 
 
 sudo apt install curl -y
+
+**sudo** - performs the following command with super-user (root) capabilities. Many actions that require modifying system files or installing applications require extra permissions to go through.
+
+**apt** - is a command-line tool which Ubuntu uses to install, remove, and manage software packages.
+
+**install** - The install command installs a specified file in a specific place within a file system.
+
+**curl** - Client URL is a command line tool that enables data exchange between a device and a server through a terminal.
+
+-y flag means "yes" to any prompts, so it automatically agrees to the upgrades without asking for confirmation.
+
+
+
 
 
 
@@ -238,9 +317,15 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo 
 ## Update your system then install the caddy.
 
 
-sudo apt update
+sudo apt install caddy 
 
-sudo apt install caddy
+**sudo** - performs the following command with super-user (root) capabilities. Many actions that require modifying system files or installing applications require extra permissions to go through.
+
+**apt** - is a command-line tool which Ubuntu uses to install, remove, and manage software packages.
+
+**install** - The install command installs a specified file in a specific place within a file system.
+
+**Caddy** - It is the name of the file or the resource we want to install in our system.
 
 
 
@@ -249,12 +334,21 @@ sudo apt install caddy
 
 systemctl status caddy
 
+**systemctl** - Systemctl provides a means to check the status of any systemd service running on dedicated server hosting.
+
+**status** - By issuing the status command, you can gather information about a particular service, including its current state and details.
+
+**Caddy** - The server which we want to check.
 
 
 
 ## Verify Caddy Installation: Confirm the installation of Caddy by checking its version.
 
 caddy version
+
+**Caddy** - The server
+
+**version** - This will show the version of the caddy server.
 
 
 
@@ -263,30 +357,43 @@ caddy version
 
 ## Go to the web browser of the same virtual machine in which you have installed caddy and in the url bar type:- 
 
-## This command will show that caddy is installed and working properly.
 localhost:80
 
 
 
 ## To install vim in a virtual machine.
 
+
 sudo apt install vim
 
+**sudo** - performs the following command with super-user (root) capabilities. Many actions that require modifying system files or installing applications require extra permissions to go through.
 
-## Then go to the terminal of the virtual machine 2.
+**apt** - is a command-line tool which Ubuntu uses to install, remove, and manage software packages.
 
-## Used to change the directory
+**install** - The install command installs a specified file in a specific place within a file system.
+
+**Vim**i s a text editor in linux like OS. It is used to create and edit text files.
+
+
+## Then go to the terminal of the virtual machine 1.
+
 cd /usr/share/caddy
 
+**cd** - cd command is used to change the directory.
 
-## To show a list of files.
+**/usr/share/caddy** - It is the path of the file
+
 ls
 
-ls command is used to show a list of files.
+**ls** - command is used to show a list of files.
 
-## To create a file and open a file in vim editor
 sudo vim index.html
 
+**sudo** - performs the following command with super-user (root) capabilities. Many actions that require modifying system files or installing applications require extra permissions to go through.
+
+**Vim** - it s a text editor in linux like OS. It is used to create and edit text files.
+
+**index.html** - It is the file we have created inside the above directory.
 
 
 
