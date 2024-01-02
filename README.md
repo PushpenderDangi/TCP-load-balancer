@@ -7,11 +7,26 @@
 ### Submitted By :- 
 #### Pushpender
 
+# Table of Content :-
+[Task requirement]
+[Environment details]
+[List of tools and technologies]
+[For VM1 caddy installation]
+[For VM2 caddy installation]
+[Curl on virtual machines]
+[Curl on base machine]
+[Commands that to be run on VM1]
+[Command to be run on Virtual Machine 2]
+[Command to be run on Virtual Machine 1]
+[Load Testing:- ( on base machine )]
+
+
+
 # Transform iptables into a TCP load balancer
 
 ## Task requirement
 
-To create two new Caddy or two nginx and after creating, it needs to forward the 50% of Load to another server.
+To create two new Caddy or two Nginx server and after creating, it needs to forward the 50% of Load to another server.
 
 
 ## Environment details
