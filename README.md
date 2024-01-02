@@ -55,10 +55,13 @@ TCP load balancing component receives a connection request from a client applica
 
 ## What are iptables?
 
-In the linux operating system, the firewalling is taken care of using netfilter. Which is a kernel module that decides what packets are allowed to come in or to go outside.
+Iptables is basically a powerful firewall, which can allow a user to set specific rules to control incoming and outgoing traffic. You can use it to block specific port, IP addresses and much more. 
 
-iptables are just the interface to netfilter. The two might often be thought of as the same thing. A better perspective would be to think of it as a back end and a front end.
+#### The iptables rules can be specified with 3 blocks
 
+**INPUT** – All packets destined for the host computer.
+**OUTPUT** – All packets originating from the host computer.
+**FORWARD** – All packets neither destined for nor originating from the host computer, but passing through (routed by) the host computer.
 
 
 ## Nginx and Caddy Web servers.
