@@ -11,7 +11,7 @@
 
  ## Table of Content 
  
-[Task requirement](#Taskrequirement)
+[Task requirement](#)
 
 [Environment details](#Environmentdetails)
 
@@ -38,18 +38,18 @@
 
 **Transform iptables into a TCP load balancer**
 
-## Task requirement
+# Task requirement
 
 To create two new Caddy or two Nginx server and after creating, it needs to forward the 50% of Load to another server.
 
 
-## Environment details
+#  Environment details
 
 UbuntuNAME="Ubuntu"
 
 VERSION="20.04.5
 
-## List of tools and technologies
+# List of tools and technologies
 
 - Caddy is most often used as an HTTPS server, but it is suitable for any long-running Go program. First and foremost, it is a platform to run Go applications.
 
@@ -88,7 +88,7 @@ Both are web servers but they are used according to need.
 Nginx web server is ideal for handling heavy traffic volumes and serving large amounts of static content, but Caddy web servers are suitable for small sites and focus on performance and ease of use.
 
 
-## VM1 caddy installation
+# VM1 caddy installation
 
 **VM1 :- 192.168.122.19**
 
@@ -255,7 +255,7 @@ sudo vim index.html
 </body>
 
 
-## For VM2 caddy installation
+# For VM2 caddy installation
 
 **VM2 >>>> 192.168.122.103**
 
@@ -419,7 +419,7 @@ sudo vim index.html
 
 
 
-## Curl on virtual machines
+# Curl on virtual machines
 
 **I am able to curl pages from both virtual machines.**
 
@@ -454,7 +454,7 @@ Curl command is used to get data or exchange of data between a device and server
 </html>
 
 
-## Curl on base machine
+# Curl on base machine
 
 **I am able to curl from Base Machine.**
 
@@ -566,7 +566,7 @@ iptables: The command-line utility used for managing the netfilter firewall in L
 
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo iptables -t filter -A FORWARD -s 192.168.122.103 -p tcp --sport 80 -j ACCEPT
 
-## Command to be run on Virtual Machine 2
+# Command to be run on Virtual Machine 2
 
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
@@ -592,7 +592,7 @@ In this case, incoming traffic destined for the IP address 192.168.122.19 on por
 The goal of applying random load balancing is to distribute traffic unpredictably, achieving a fair distribution of incoming requests among the specified destinations. This way, the servers can collectively handle the load more efficiently, minimising the risk of overloading any single server and contributing to improved performance and fault tolerance.
 
 
-## Command to be run on Virtual Machine 1
+# Command to be run on Virtual Machine 1
 
 
 ubuntu@ubuntu-Standard-PC-Q35-ICH9-2009:~$ sudo iptables -A PREROUTING -t nat -p tcp -d 192.168.122.19 --dport 80 \
@@ -716,14 +716,14 @@ connection: close
 
 
 
-## Load Testing:- ( on base machine )
+# Load Testing:- ( on base machine )
 
-## This command is used to install set of utility program for web servers
+# This command is used to install set of utility program for web servers
 
 sudo apt install apache2-utils 
 
 
-## Install ab command at local for load testing
+# Install ab command at local for load testing
 
 Install apache2-utils for ab command for Load Testing
 run load test using ab command :- 
@@ -814,7 +814,7 @@ Percentage of the requests served within a certain time (ms)
 
 
 
-## curl http://192.168.122.19
+# curl http://192.168.122.19
 <!DOCTYPE html>
 <html lang="en">
 <head>
