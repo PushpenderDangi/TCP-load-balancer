@@ -49,6 +49,8 @@ UbuntuNAME="Ubuntu"
 
 VERSION="20.04.5
 
+Codename: Focal Fosa   
+
 # List of tools and technologies
 
 - Caddy is most often used as an HTTPS server, but it is suitable for any long-running Go program. First and foremost, it is a platform to run Go applications.
