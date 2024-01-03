@@ -31,7 +31,7 @@
 
 [Command to be run on Virtual Machine 1](#command-to-be-run-on-virtual-machine-1)
 
-[Load Testing:- ( on base machine )](#load-testing---on-base-machine)
+[Load testing (on base machine)](#load-testingon-base-machine)
 
 
 
@@ -721,14 +721,14 @@ connection: close
 
 
 
-# Load Testing:- ( on base machine )
+# Load Testing(on base machine):-
 
-# This command is used to install set of utility program for web servers
+**This command is used to install set of utility program for web servers**
 
 sudo apt install apache2-utils 
 
 
-# Install ab command at local for load testing
+**Install ab command at local for load testing**
 
 Install apache2-utils for ab command for Load Testing
 run load test using ab command :- 
