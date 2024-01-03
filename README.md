@@ -31,7 +31,7 @@
 
 [Command to be run on Virtual Machine 1](#command-to-be-run-on-virtual-machine-1)
 
-[Load testing (on base machine)](#load-testingon-base-machine)
+[Load testing on base machine](#load-testing-on-base-machine)
 
 
 
@@ -721,7 +721,7 @@ connection: close
 
 
 
-# Load Testing(on base machine):-
+# Load Testing on base machine
 
 **This command is used to install set of utility program for web servers**
 
