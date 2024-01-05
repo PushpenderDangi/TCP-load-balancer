@@ -225,7 +225,7 @@ sudo apt install vim
 
 **install** - The install command installs a specified file in a specific place within a file system.
 
-**Vim**i s a text editor in linux like OS. It is used to create and edit text files.
+**Vim** is a text editor in linux like OS. It is used to create and edit text files.
 
 
 **Then go to the terminal of the virtual machine 1.**
