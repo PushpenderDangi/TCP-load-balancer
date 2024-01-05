@@ -74,6 +74,7 @@ TCP load balancing component receives a connection request from a client applica
 For this requests distribution, the platform uses Round Robin Algorithm.
 
 Round‑robin load balancing is one of the simplest methods for distributing client requests across a group of servers. Going down the list of servers in the group, the round‑robin load balancer forwards a client request to each server in turn.
+When it reaches the end of the list, the load balancer loops back and goes down the list again (sends the next request to the first listed server, the one after that to the second server, and so on).
 
 
 **What are iptables?**
