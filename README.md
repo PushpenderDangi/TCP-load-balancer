@@ -69,7 +69,12 @@ Codename: Focal Fosa
 
 Load balancing ensures high system availability through the distribution of workload across multiple components. Using multiple components with load balancing, instead of a single component, may increase reliability through redundancy.
 
-TCP load balancing component receives a connection request from a client application through a network socket. This component decides which node in the environment receives the request. For this requests distribution, the platform uses Round Robin Algorithm.
+TCP load balancing component receives a connection request from a client application through a network socket. This component decides which node in the environment receives the request. A TCP load balancer is a type of load balancer that uses transmission control protocol (TCP), which operates at layer 4 — the transport layer — in the open systems interconnection (OSI) model.
+
+For this requests distribution, the platform uses Round Robin Algorithm.
+
+Round‑robin load balancing is one of the simplest methods for distributing client requests across a group of servers. Going down the list of servers in the group, the round‑robin load balancer forwards a client request to each server in turn.
+
 
 **What are iptables?**
 
